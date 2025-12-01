@@ -299,8 +299,11 @@ const FaqSection = () => {
 const Home = () => {
   return <>
       <Helmet>
-        <title>AI異音検知システム - 現場のパートナー</title>
-        <meta name="description" content="AIを活用した異音検知システム。音の不良を見逃さず、製造現場の品質向上とコスト削減を実現します。資料請求・無料トライアル受付中。" />
+        <title>オトモニ</title>
+        <meta
+          name="description"
+          content="オトモニは、AIを活用して音の異常を検知し、製造現場の品質向上とコスト削減を支援する異音検知システムです。"
+        />
       </Helmet>
 
       <div className="bg-white">
