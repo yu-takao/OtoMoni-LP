@@ -5,8 +5,11 @@ import ProductsList from '@/components/ProductsList';
 const Shop = () => {
   return <>
       <Helmet>
-        <title>Shop Vintage Furniture & Decor - Midcentury Decor</title>
-        <meta name="description" content="Browse our curated collection of vintage furniture, lighting, and home decor. Unique midcentury modern pieces from Berlin." />
+        <title>開発チーム - オトモニ</title>
+        <meta
+          name="description"
+          content="オトモニに関する情報や機能の一覧ページです。"
+        />
       </Helmet>
 
       <div className="bg-white min-h-screen">

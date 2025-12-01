@@ -9,8 +9,11 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>お問い合わせ - Tomoni</title>
-        <meta name="description" content="Tomoniに関するお問い合わせはこちら。お電話、またはお問い合わせフォームよりご連絡ください。" />
+        <title>お問い合わせ - オトモニ</title>
+        <meta
+          name="description"
+          content="オトモニに関するお問い合わせはこちら。お電話、またはお問い合わせフォームよりご連絡ください。"
+        />
       </Helmet>
 
       <div className="bg-white min-h-screen py-20">

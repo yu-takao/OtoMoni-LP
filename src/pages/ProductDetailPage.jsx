@@ -145,7 +145,7 @@ function ProductDetailPage({ setIsCartOpen }) {
   return (
     <>
       <Helmet>
-        <title>{product.title} - Midcentury Decor</title>
+        <title>開発チーム - オトモニ</title>
         <meta name="description" content={product.description?.substring(0, 160) || product.title} />
       </Helmet>
       <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
