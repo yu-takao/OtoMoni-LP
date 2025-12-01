@@ -34,7 +34,7 @@ const Header = ({ setIsCartOpen }) => {
     <>
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center h-20">
             <Link to="/" className="flex items-center">
               <img
                 src="https://horizons-cdn.hostinger.com/f3a9ec1a-7812-4e0e-9935-9f1545a02da8/e6b597dc49ec92e90754da3c608b5ef0.png"
@@ -43,7 +43,7 @@ const Header = ({ setIsCartOpen }) => {
               />
             </Link>
 
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-8 ml-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -59,7 +59,7 @@ const Header = ({ setIsCartOpen }) => {
               ))}
             </nav>
 
-            <div className="flex items-center">
+            <div className="flex items-center md:hidden ml-auto">
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 className="md:hidden text-gray-900 hover:text-gray-600 transition-colors"

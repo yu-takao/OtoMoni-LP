@@ -21,7 +21,7 @@ const Footer = () => {
     <footer className="bg-gray-50 border-t border-gray-200 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"> {/* Adjusted padding */}
         <div className="pt-0 border-t-0"> {/* Removed border-t and pt-8 */}
-          <p className="text-sm text-gray-600 text-center">© 2025 Home decor. All rights reserved.</p>
+          <p className="text-sm text-gray-600 text-center">© 2025 TRUST. All rights reserved.</p>
         </div>
       </div>
     </footer>
