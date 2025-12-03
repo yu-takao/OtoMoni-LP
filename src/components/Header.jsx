@@ -35,12 +35,15 @@ const Header = ({ setIsCartOpen }) => {
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-20">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex flex-col items-center leading-tight">
               <img
                 src="https://horizons-cdn.hostinger.com/f3a9ec1a-7812-4e0e-9935-9f1545a02da8/e6b597dc49ec92e90754da3c608b5ef0.png"
                 alt="オトモニのロゴ"
                 className="h-10 w-auto object-contain"
               />
+              <span className="mt-1 text-[9px] sm:text-[11px] font-bold tracking-[0.2em] text-gray-900 font-japanese text-center">
+                -オトモニ-
+              </span>
             </Link>
 
             <nav className="hidden md:flex items-center space-x-8 ml-auto">

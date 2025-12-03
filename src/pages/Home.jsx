@@ -1,11 +1,17 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, BellRing, History, Factory, Mic, ClipboardCheck, MessageSquare, Rocket, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const HERO_IMAGES = [
+  '/hero/hero-1.png',
+  '/hero/hero-2.png',
+  '/hero/hero-3.png',
+];
 
 const ProductFeaturesSection = () => {
   const features = [{
@@ -297,6 +303,18 @@ const FaqSection = () => {
 };
 
 const Home = () => {
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  useEffect(() => {
+    if (HERO_IMAGES.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 10000); // 10秒ごとに切り替え
+
+    return () => clearInterval(interval);
+  }, []);
+
   return <>
       <Helmet>
         <title>オトモニ</title>
@@ -307,34 +325,39 @@ const Home = () => {
       </Helmet>
 
       <div className="bg-white">
-        <section className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-16 lg:pt-0 lg:pb-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="flex flex-col items-center text-center">
+        <section className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-16 lg:pt-0 lg:pb-0 overflow-hidden">
+          {/* 背景スライドショー（背面） */}
+          <div className="absolute inset-0 z-0">
+            {HERO_IMAGES.map((src, index) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-8"
-              >
-                <img
-                  className="max-w-xs h-auto"
-                  alt="Tomoni logo"
-                  src="https://horizons-cdn.hostinger.com/f3a9ec1a-7812-4e0e-9935-9f1545a02da8/85b2ce404404e899a36c334243f3f3fc.png"
-                />
-              </motion.div>
-              
+                key={src}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: currentHeroIndex === index ? 1 : 0 }}
+                transition={{ duration: 1.2 }}
+                className="absolute inset-0 bg-center bg-cover"
+                style={{ backgroundImage: `url(${src})` }}
+              />
+            ))}
+            {/* 黒のオーバーレイで背景を暗くし、テキストを際立たせる */}
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+          {/* コンテンツは最前面に */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="flex flex-col items-center text-center">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }} 
                 animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.8, delay: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="mt-[-12px] sm:mt-[-24px]"
               >
                 {/* Removed the paragraph as requested */}
-                <h1 className="font-japanese text-2xl sm:text-5xl md:text-6xl font-medium tracking-tight text-gray-900 mb-10 leading-tight">
-                  音の不良を見逃さない、<br />現場のパートナー
+                <h1 className="font-japanese text-2xl sm:text-5xl md:text-6xl font-medium tracking-tight text-white mb-10 leading-tight">
+                  <span className="block">すべての製造現場へ。</span>
+                  <span className="block mt-4">AIで“音の異常”を見える化する。</span>
                 </h1>
-                
-                <Link to="/contact">
-                  <Button className="font-japanese bg-gray-900 text-white hover:bg-gray-800 rounded-full px-8 py-6 sm:px-10 sm:py-7 text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+
+                <Link to="/contact" className="mt-[50px] inline-block">
+                  <Button className="font-japanese bg-white text-black hover:bg-gray-100 rounded-full px-8 py-6 sm:px-10 sm:py-7 text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                     資料請求・無料トライアル
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
